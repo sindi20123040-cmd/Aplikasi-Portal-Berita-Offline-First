@@ -25,13 +25,13 @@ class _ProfilePageState extends State<ProfilePage> {
     _lastClickTime = now;
     _clickCount++;
 
-    // TANTANGAN ANTI-AI NIM Akhiran 0 -> Memicu rahasia setelah 5 kali klik cepat
+    // TANTANGAN ANTI-AI NIM Akhiran 0 -> Memicu rahasia setelah 5 kali klik cepat [cite: 39]
     if (_clickCount == 5) {
       setState(() {
         _showEasterEgg = true;
       });
 
-      // Sembunyikan kembali animasi secara otomatis setelah 3 detik sesuai soal UAS
+      // Sembunyikan kembali animasi secara otomatis setelah 3 detik sesuai soal UAS [cite: 39]
       Future.delayed(const Duration(seconds: 3), () {
         if (mounted) {
           setState(() {
@@ -46,7 +46,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Light Mode permanen sesuai NIM Genap
+      backgroundColor:
+          Colors.white, // Light Mode permanen sesuai NIM Genap [cite: 34]
       appBar: AppBar(
         title: const Text(
           'Profil Pengembang',
@@ -63,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Detektor ketukan foto profil
+                  // Detektor ketukan foto profil [cite: 39]
                   GestureDetector(
                     onTap: _handleProfileClick,
                     child: Container(
@@ -74,7 +75,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: const CircleAvatar(
                         radius: 70,
                         backgroundColor: Colors.grey,
-                        // Kamu bisa mengganti ikon ini dengan file aset foto aslimu nanti
                         child: Icon(
                           Icons.person,
                           size: 80,
@@ -102,11 +102,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const Card(
-                    color: Colors.blueIndexed,
+                  Card(
+                    color: Colors
+                        .blue[50], // Perbaikan: menggunakan warna latar biru muda yang valid
                     elevation: 0,
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    child: Padding(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: const Padding(
                       padding: EdgeInsets.all(12.0),
                       child: Text(
                         'Petunjuk: Klik foto profil sebanyak 5 kali secara cepat untuk memicu Easter Egg!',
@@ -115,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontSize: 12,
                           color: Colors.blueGrey,
                           fontStyle: FontStyle.italic,
-                        ),
+                        ), // Perbaikan: menggunakan Colors.blueGrey resmi
                       ),
                     ),
                   ),
@@ -124,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
 
-          // EASTER EGG LOTTIE (Memenuhi layar selama 3 detik)
+          // EASTER EGG LOTTIE (Memenuhi layar selama 3 detik) [cite: 39]
           if (_showEasterEgg)
             Container(
               color: Colors.black.withOpacity(0.8),
@@ -132,8 +133,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: double.infinity,
               child: Center(
                 child: Lottie.network(
-                  // Menggunakan URL JSON Lottie publik yang ringan agar hemat penyimpanan 6GB kamu!
-                  'https://assets2.lottiefiles.com/packages/lf20_tou91b10.json', // Animasi perayaan/congrats
+                  'https://assets2.lottiefiles.com/packages/lf20_tou91b10.json', // Animasi perayaan [cite: 39]
                   fit: BoxFit.contain,
                 ),
               ),
