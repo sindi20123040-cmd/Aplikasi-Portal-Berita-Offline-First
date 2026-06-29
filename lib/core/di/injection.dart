@@ -2,7 +2,8 @@ import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import '../../features/home/data/repositories/news_repository_impl.dart';
 import '../../features/home/presentation/cubit/news_cubit.dart';
-import '../../main.dart'; // Impor instance isar global
+import '../../main.dart'
+    show isar; // Mengimpor variabel isar global secara spesifik
 import '../config/env_config.dart';
 
 final locator = GetIt.instance;
@@ -15,7 +16,7 @@ void setupLocator() {
     return dio;
   });
 
-  // 2. Register Repository (Menggunakan singleton Dio dan Isar global)
+  // 2. Register Repository
   locator.registerLazySingleton<NewsRepositoryImpl>(
     () => NewsRepositoryImpl(locator<Dio>(), isar),
   );
