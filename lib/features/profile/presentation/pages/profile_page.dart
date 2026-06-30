@@ -59,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
           'Profil Pengembang',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: const Color.fromARGB(255, 11, 29, 59),
       ),
       body: Stack(
         children: [
@@ -111,7 +111,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     icon: const Icon(Icons.code),
                     label: const Text('Balik NIM (Native Kotlin)'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor:
+                          Colors.orangeAccent, // <-- UBAH KE ORANGE
                       foregroundColor: Colors.white,
                     ),
                   ),
