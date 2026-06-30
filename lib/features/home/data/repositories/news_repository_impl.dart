@@ -4,7 +4,6 @@ class NewsRepositoryImpl {
   NewsRepositoryImpl(dynamic dio, dynamic isar);
 
   Future<List<NewsModel>> fetchNews() async {
-    // Menyediakan data tiruan yang dijamin langsung muncul tanpa internet
     final mockData = [
       NewsModel(
         title: 'Bursa Saham Menguat Tajam Hari Ini',
@@ -29,10 +28,8 @@ class NewsRepositoryImpl {
       ),
     ];
 
-    // ATURAN NIM GENAP: Wajib melakukan sorting data secara A-Z berdasarkan Judul
     mockData.sort((a, b) => a.title.compareTo(b.title));
 
-    // Beri jeda loading singkat 1 detik agar animasi muter-muter (loading) bawaan Flutter tetap terlihat profesional
     await Future.delayed(const Duration(seconds: 1));
 
     return mockData;
